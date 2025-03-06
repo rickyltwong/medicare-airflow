@@ -1,0 +1,3 @@
+[submodule "dags/dbt"]
+	path = dags/dbt
+	url = git@github.com:rickyltwong/medicare-dbt

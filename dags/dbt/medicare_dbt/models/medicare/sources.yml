@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: medicare
+    database: medicare_db
+    schema: dbt_schema
+    tables:
+      - name: ext_raw_spending
+        columns:
+          - name: brand_name
+            data_type: varchar
+            tests:
+              - not_null
+          - name: generic_name
+            data_type: varchar
+            tests:
+              - not_null
+          - name: manufacturer_name
+            data_type: varchar
+          - name: total_manufacturer
+            data_type: varchar
+          - name: year
+            data_type: varchar
+          - name: total_spending
+            data_type: float
+            tests:
+              - not_null
+              - positive_values
+          - name: total_dosage_units
+            data_type: integer
+          - name: total_claims
+            data_type: integer
+          - name: total_beneficiaries
+            data_type: integer
+          - name: avg_spend_per_dosage_unit
+            data_type: float
+          - name: avg_spend_per_claim
+            data_type: float
+          - name: avg_spend_per_beneficiary
+            data_type: float
+          - name: cagr_avg_spend_per_dosage_unit_18_22
+            data_type: float
+          - name: change_avg_spend_per_dosage_unit_21_22
+            data_type: float
+          - name: outlier_flag
+            data_type: boolean 
